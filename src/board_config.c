@@ -24,6 +24,8 @@ limitations under the License.
 #include <sos/link/types.h>
 #include "board_config.h"
 
+extern void SystemClock_Config();
+
 #define TRACE_COUNT 8
 #define TRACE_FRAME_SIZE sizeof(link_trace_event_t)
 #define TRACE_BUFFER_SIZE (sizeof(link_trace_event_t)*TRACE_COUNT)
@@ -71,6 +73,10 @@ void board_event_handler(int event, void * args){
 		case MCU_BOARD_CONFIG_EVENT_START_INIT:
 			break;
 
+		case MCU_BOARD_CONFIG_EVENT_ROOT_INITIALIZE_CLOCK:
+			SystemClock_Config();
+			break;
+
 		case MCU_BOARD_CONFIG_EVENT_START_LINK:
 			mcu_debug_log_info(MCU_DEBUG_USER1, "Start LED %d");
 			sos_led_startup();
@@ -80,3 +86,4 @@ void board_event_handler(int event, void * args){
 			break;
 	}
 }
+

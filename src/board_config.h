@@ -29,5 +29,4 @@ extern ffifo_state_t board_trace_state;
 
 void board_event_handler(int event, void * args); //optional event handler
 
-
 #endif /* BOARD_CONFIG_H_ */
