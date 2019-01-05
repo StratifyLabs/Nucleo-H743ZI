@@ -1,7 +1,8 @@
 
 set(SOURCES
-  ${SOURCES_PREFIX}/board_config.c
-  ${SOURCES_PREFIX}/board_config.h
+	${SOURCES_PREFIX}/../sl_settings.json
+	${SOURCES_PREFIX}/board_config.c
+	${SOURCES_PREFIX}/board_config.h
   ${SOURCES_PREFIX}/config.h
   ${SOURCES_PREFIX}/link_config.c
   ${SOURCES_PREFIX}/link_config.h
