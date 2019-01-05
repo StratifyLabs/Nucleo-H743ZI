@@ -53,6 +53,7 @@ void board_trace_event(void * event){
 }
 
 void board_event_handler(int event, void * args){
+
 	switch(event){
 		case MCU_BOARD_CONFIG_EVENT_ROOT_TASK_INIT:
 			break;

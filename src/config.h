@@ -26,8 +26,7 @@ limitations under the License.
 //openocd -f interface/stlink-v2-1.cfg -f target/stm32f4x_stlink.cfg
 #define SOS_BOARD_DEBUG_FLAGS (MCU_DEBUG_INFO | MCU_DEBUG_SYS | MCU_DEBUG_USER1 | MCU_DEBUG_DEVICE | MCU_DEBUG_USB | MCU_DEBUG_LINK)
 
-
-#define SOS_BOARD_SYSTEM_CLOCK 64000000UL
+#define SOS_BOARD_SYSTEM_CLOCK 400000000UL
 #define SOS_BOARD_SYSTEM_MEMORY_SIZE (8192*4)
 
 #define SOS_BOARD_USB_RX_BUFFER_SIZE 512
