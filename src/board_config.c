@@ -52,6 +52,8 @@ void board_trace_event(void * event){
 	trace_dev->driver.write(&(trace_dev->handle), &async);
 }
 
+
+
 void board_event_handler(int event, void * args){
 
 	switch(event){
@@ -87,3 +89,4 @@ void board_event_handler(int event, void * args){
 			break;
 	}
 }
+
