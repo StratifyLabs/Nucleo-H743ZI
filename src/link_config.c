@@ -90,7 +90,6 @@ const usbd_control_constants_t link_transport_usb_constants = {
 #define link_transport_usb_constants sos_link_transport_usb_constants
 #endif
 
-
 link_transport_phy_t link_transport_open(const char * name, const void * options){
 	usb_attr_t usb_attr;
 	link_transport_phy_t fd;

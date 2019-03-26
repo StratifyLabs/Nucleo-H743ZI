@@ -2,11 +2,17 @@
    "description": "This BSP can be used to run Stratify OS on the STM32F Nucleo-H743ZI board.",
    "github": "https://github.com/StratifyLabs/Nucleo-H743ZI",
    "name": "Nucleo-H743ZI",
+   "isBeta": true,
    "permissions": "public",
    "publisher": "Stratify Labs, Inc",
    "tags": "stm32,arm,cortex-m7",
    "type": "os",
-   "uid": "",
+   "uid": "9cQyOTk3fZXOuMtPyf5j9X4H4b83",
    "version": "0.1",
-   "hardwareId": "0x00000021"
+   "hardwareId": "0x00000021",
+   "timestamp": 1552276486,
+   "documentId": "CPsCBpwpFuSEnx2FuqUy",
+   "buildList": {
+      "4ksEj0AHzJntKYj7GiEm": "0.1"
+   }
 }

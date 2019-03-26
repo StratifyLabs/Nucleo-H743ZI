@@ -8,7 +8,7 @@
 
 #define SL_CONFIG_VERSION_STRING "0.1"
 #define SL_CONFIG_VERSION_BCD 0x01
-#define SL_CONFIG_DOCUMENT_ID "<invalid>"
+#define SL_CONFIG_DOCUMENT_ID "CPsCBpwpFuSEnx2FuqUy"
 #define SL_CONFIG_NAME "Nucleo-H743ZI"
 #define SL_CONFIG_TYPE "os"
 #define SL_CONFIG_PUBLISHER "Stratify Labs, Inc"

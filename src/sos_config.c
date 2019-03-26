@@ -40,6 +40,9 @@ limitations under the License.
 #include "sl_config.h"
 #include "link_config.h"
 
+#if !defined SOS_BOARD_FLAGS
+#define SOS_BOARD_FLAGS 0
+#endif
 
 //--------------------------------------------Stratify OS Configuration-------------------------------------------------
 const sos_board_config_t sos_board_config = {
