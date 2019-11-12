@@ -53,11 +53,11 @@ limitations under the License.
 #endif
 
 #if !defined SOS_BOARD_USB_DP_PIN
-#define SOS_BOARD_USB_DP_PIN mcu_pin(0,11)
+#define SOS_BOARD_USB_DP_PIN mcu_pin(0,12)
 #endif
 
 #if !defined SOS_BOARD_USB_DM_PIN
-#define SOS_BOARD_USB_DM_PIN mcu_pin(0,12)
+#define SOS_BOARD_USB_DM_PIN mcu_pin(0,11)
 #endif
 
 
@@ -71,6 +71,9 @@ link_transport_driver_t link_transport = {
 	.close = sos_link_transport_usb_close,
 	.wait = sos_link_transport_usb_wait,
 	.flush = sos_link_transport_usb_flush,
+	.o_flags = 0, //no checksums -- checksums already happen over USB
+	.transport_read = link1_transport_slaveread,
+	.transport_write = link1_transport_slavewrite,
 	.timeout = 500
 };
 
@@ -115,6 +118,8 @@ link_transport_phy_t link_transport_open(const char * name, const void * options
 	usb_attr.tx_fifo_word_size[5] = SOS_BOARD_TX5_FIFO_WORDS; //TX endpoint 5
 
 	mcu_debug_log_info(MCU_DEBUG_USER1, "Open USB");
+
+
 
 	fd = sos_link_transport_usb_open(name,
 												&m_usb_control,

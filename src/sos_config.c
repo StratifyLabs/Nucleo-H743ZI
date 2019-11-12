@@ -86,7 +86,7 @@ SOS_DECLARE_TASK_TABLE(SOS_BOARD_TASK_TOTAL);
  *
  */
 //USART2
-UARTFIFO_DECLARE_CONFIG_STATE(uart1_fifo, 1024,
+UARTFIFO_DECLARE_CONFIG_STATE(uart1_fifo, 1024, 1,
 										UART_FLAG_SET_LINE_CODING_DEFAULT, 8, 115200,
 										SOS_BOARD_USART2_RX_PORT, SOS_BOARD_USART2_RX_PIN, //RX
 										SOS_BOARD_USART2_TX_PORT, SOS_BOARD_USART2_TX_PIN, //TX
@@ -94,7 +94,7 @@ UARTFIFO_DECLARE_CONFIG_STATE(uart1_fifo, 1024,
 										0xff, 0xff);
 #if !defined __debug
 //USART3
-UARTFIFO_DECLARE_CONFIG_STATE(uart2_fifo, 1024,
+UARTFIFO_DECLARE_CONFIG_STATE(uart2_fifo, 1024, 1,
 										UART_FLAG_SET_LINE_CODING_DEFAULT, 8, 115200,
 										SOS_BOARD_USART3_RX_PORT, SOS_BOARD_USART3_RX_PIN, //RX
 										SOS_BOARD_USART3_TX_PORT, SOS_BOARD_USART3_TX_PIN, //TX
@@ -103,7 +103,7 @@ UARTFIFO_DECLARE_CONFIG_STATE(uart2_fifo, 1024,
 #endif
 
 //USART6
-UARTFIFO_DECLARE_CONFIG_STATE(uart5_fifo, 1024,
+UARTFIFO_DECLARE_CONFIG_STATE(uart5_fifo, 1024, 1,
 										UART_FLAG_SET_LINE_CODING_DEFAULT, 8, 115200,
 										SOS_BOARD_USART6_RX_PORT, SOS_BOARD_USART6_RX_PIN, //RX
 										SOS_BOARD_USART6_TX_PORT, SOS_BOARD_USART6_TX_PIN, //TX
@@ -283,9 +283,9 @@ const devfs_device_t devfs_list[] = {
 
 const devfs_device_t mem0 = DEVFS_DEVICE("mem0", mcu_mem, 0, 0, 0, 0666, SOS_USER_ROOT, S_IFBLK);
 const sysfs_t sysfs_list[] = {
-	APPFS_MOUNT("/app", &mem0, SYSFS_ALL_ACCESS), //the folder for ram/flash applications
-	DEVFS_MOUNT("/dev", devfs_list, SYSFS_READONLY_ACCESS), //the list of devices
-	SYSFS_MOUNT("/", sysfs_list, SYSFS_READONLY_ACCESS), //the root filesystem (must be last)
+	APPFS_MOUNT("/app", &mem0, 0777, SYSFS_ROOT), //the folder for ram/flash applications
+	DEVFS_MOUNT("/dev", devfs_list, 0777, SYSFS_ROOT), //the list of devices
+	SYSFS_MOUNT("/", sysfs_list, 0777, SYSFS_ROOT), //the root filesystem (must be last)
 	SYSFS_TERMINATOR
 };
 
